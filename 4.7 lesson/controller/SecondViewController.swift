@@ -8,22 +8,33 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    
+    private let successLabel: UILabel = {
+           let label = UILabel()
+           label.text = "Перевод выполнен"
+           label.textAlignment = .center
+           label.font = UIFont.boldSystemFont(ofSize: 24)
+           return label
+       }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
     
+    private func setupUI() {
+            view.backgroundColor = .white
+            title = "Успех"
 
-    /*
-    // MARK: - Navigation
+            
+            view.addSubview(successLabel)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+            
+            successLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                successLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                successLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        }
+  
 }
