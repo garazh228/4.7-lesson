@@ -1,20 +1,18 @@
 //
-//  FirstViewController.swift
+//  MasterCardController.swift
 //  4.7 lesson
 //
-//  Created by adyl CEO on 05/02/2024.
+//  Created by adyl CEO on 08/02/2024.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController, TransferValidation {
+class MasterCardController: UIViewController, TransferValidation {
     
-    var senderCardNumber: String = "3333 3333 3333 3333" // Номер карты отправителя
-    var senderBalance: Double = 1000.0 // Баланс отправителя
+    var senderCardNumber: String = "7777 7777 7777 7777" // Номер карты отправителя
+    var senderBalance: Double = 5000.0 // Баланс отправителя
     var receiverCardNumber: String?
     var transferAmount: Double?
-    
-    lazy var validationService: TransferValidation = CheckProtocolFunc()
     
     private let receiverCardTextField: UITextField = {
         let textField = UITextField()
@@ -55,13 +53,12 @@ class FirstViewController: UIViewController, TransferValidation {
         
         setupUI()
         
-        
         senderInfoLabel.text = "Отправитель: \(senderCardNumber)\nБаланс: \(senderBalance)"
     }
     
     private func setupUI() {
         view.backgroundColor = .white
-        title = "Union Bank"
+        title = "Master Card"
         
         
         view.addSubview(receiverCardTextField)
@@ -102,9 +99,28 @@ class FirstViewController: UIViewController, TransferValidation {
         ])
     }
     
+    func isValidCardNumber(_ cardNumber: String) -> Bool {
+        if cardNumber.count == 16 {
+            for character in cardNumber {
+                if !character.isNumber {
+                    return false
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isValidTransferAmount(_ amount: Double, fromBalance balance: Double) -> Bool {
+        return amount > 20 && amount <= balance
+    }
+    
     @objc private func transferButtonTapped() {
-        guard let text1 = receiverCardTextField.text, !text1.isEmpty,
-              let text2 = amountTextField.text, !text2.isEmpty else {
+        guard let receiverCardNumber = receiverCardTextField.text, !receiverCardNumber.isEmpty,
+              let transferAmountText = amountTextField.text, !transferAmountText.isEmpty,
+              let transferAmount = Double(transferAmountText),
+              receiverCardNumber.count == 16 else {
             receiverCardTextField.layer.borderWidth = 1.0
             receiverCardTextField.layer.borderColor = UIColor.red.cgColor
             amountTextField.layer.borderWidth = 1.0
@@ -115,23 +131,9 @@ class FirstViewController: UIViewController, TransferValidation {
         receiverCardTextField.layer.borderWidth = 0.0
         amountTextField.layer.borderWidth = 0.0
         
-        guard let receiverCardNumber = receiverCardTextField.text,
-              let transferAmountText = amountTextField.text,
-              let transferAmount = Double(transferAmountText) else {
-            
-            return
-        }
-        
-        
-        let isCardValid = validationService.isValidCardNumber(receiverCardNumber)
-        let isAmountValid = validationService.isValidTransferAmount(transferAmount, fromBalance: senderBalance)
-        
-        if isCardValid && isAmountValid {
-            
+        if isValidCardNumber(receiverCardNumber) && isValidTransferAmount(transferAmount, fromBalance: senderBalance) {
             let vc = SecondViewController()
             navigationController?.pushViewController(vc, animated: true)
-        } else {
-
         }
     }
 }

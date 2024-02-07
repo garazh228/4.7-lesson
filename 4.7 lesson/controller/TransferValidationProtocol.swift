@@ -13,12 +13,10 @@ protocol TransferValidation {
     func isValidTransferAmount(_ amount: Double, fromBalance balance: Double) -> Bool
 }
 
-
 class CheckProtocolFunc: TransferValidation {
     func isValidTransferAmount(_ amount: Double, fromBalance balance: Double) -> Bool {
         return amount > 20 && amount <= balance
     }
-    
     
     func isValidCardNumber(_ cardNumber: String) -> Bool {
         if cardNumber.count == 16 {
@@ -27,9 +25,7 @@ class CheckProtocolFunc: TransferValidation {
                     return false
                 }
             }
-            
             return true
-            
         } else {
             return false
         }

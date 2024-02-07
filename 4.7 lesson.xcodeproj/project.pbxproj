@@ -15,6 +15,9 @@
 		2EE74A892B70560B00981056 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A882B70560B00981056 /* FirstViewController.swift */; };
 		2EE74A8B2B70561900981056 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A8A2B70561900981056 /* SecondViewController.swift */; };
 		2EE74A912B70591200981056 /* TransferValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A902B70591200981056 /* TransferValidationProtocol.swift */; };
+		2EE74A932B73AD5F00981056 /* VisaCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A922B73AD5F00981056 /* VisaCardController.swift */; };
+		2EE74A952B742DB800981056 /* MasterCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A942B742DB800981056 /* MasterCardController.swift */; };
+		2EE74A9A2B74338E00981056 /* TransferValidationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE74A992B74338E00981056 /* TransferValidationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		2EE74A882B70560B00981056 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2EE74A8A2B70561900981056 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2EE74A902B70591200981056 /* TransferValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValidationProtocol.swift; sourceTree = "<group>"; };
+		2EE74A922B73AD5F00981056 /* VisaCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaCardController.swift; sourceTree = "<group>"; };
+		2EE74A942B742DB800981056 /* MasterCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCardController.swift; sourceTree = "<group>"; };
+		2EE74A992B74338E00981056 /* TransferValidationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValidationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +66,10 @@
 		2EE74A722B7054F500981056 /* 4.7 lesson */ = {
 			isa = PBXGroup;
 			children = (
+				2EE74A982B74337300981056 /* extensions */,
+				2EE74A972B74336700981056 /* assets */,
+				2EE74A962B74335100981056 /* delegate */,
 				2EE74A872B7055F000981056 /* controller */,
-				2EE74A732B7054F500981056 /* AppDelegate.swift */,
-				2EE74A752B7054F500981056 /* SceneDelegate.swift */,
-				2EE74A7C2B7054F800981056 /* Assets.xcassets */,
 				2EE74A7E2B7054F800981056 /* LaunchScreen.storyboard */,
 				2EE74A812B7054F800981056 /* Info.plist */,
 			);
@@ -77,8 +83,35 @@
 				2EE74A882B70560B00981056 /* FirstViewController.swift */,
 				2EE74A8A2B70561900981056 /* SecondViewController.swift */,
 				2EE74A902B70591200981056 /* TransferValidationProtocol.swift */,
+				2EE74A922B73AD5F00981056 /* VisaCardController.swift */,
+				2EE74A942B742DB800981056 /* MasterCardController.swift */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		2EE74A962B74335100981056 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2EE74A732B7054F500981056 /* AppDelegate.swift */,
+				2EE74A752B7054F500981056 /* SceneDelegate.swift */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
+		2EE74A972B74336700981056 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				2EE74A7C2B7054F800981056 /* Assets.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		2EE74A982B74337300981056 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EE74A992B74338E00981056 /* TransferValidationExtension.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +188,11 @@
 				2EE74A742B7054F500981056 /* AppDelegate.swift in Sources */,
 				2EE74A912B70591200981056 /* TransferValidationProtocol.swift in Sources */,
 				2EE74A762B7054F500981056 /* SceneDelegate.swift in Sources */,
+				2EE74A9A2B74338E00981056 /* TransferValidationExtension.swift in Sources */,
 				2EE74A8B2B70561900981056 /* SecondViewController.swift in Sources */,
+				2EE74A932B73AD5F00981056 /* VisaCardController.swift in Sources */,
 				2EE74A892B70560B00981056 /* FirstViewController.swift in Sources */,
+				2EE74A952B742DB800981056 /* MasterCardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
